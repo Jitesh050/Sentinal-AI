@@ -1,0 +1,196 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark theme (default) */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --radius: 0.5rem;
+  }
+
+  .light-theme {
+    /* Light theme */
+    --background: 0 0% 98%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 98%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 98%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+
+    --sidebar-background: 240 4.8% 95.9%;
+    --sidebar-foreground: 240 5.9% 10%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 240 5.9% 90%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Cyber colors for light theme */
+    --cyber-dark: #f5f5f7;
+    --cyber-darker: #e5e7eb;
+    --cyber-blue: #0078d7;
+    --cyber-cyan: #0098db;
+    --cyber-purple: #6b46c1;
+    --cyber-magenta: #b83280;
+    --cyber-orange: #dd6b20;
+    --cyber-red: #e53e3e;
+    --cyber-green: #38a169;
+    --cyber-subtle: #d1d5db;
+  }
+
+  /* Default body style maintained */
+  body {
+    @apply bg-cyber-dark text-slate-200;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Light theme body style */
+  body.light-theme {
+    @apply text-slate-900;
+  }
+
+  /* ...keep existing code for scrollbar */
+}
+
+@layer components {
+  .cyber-card {
+    @apply bg-cyber-darker border border-cyber-blue/30 rounded-md shadow-md backdrop-blur-sm
+           overflow-hidden relative p-4;
+  }
+  
+  .cyber-card::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-cyber-blue/10 to-cyber-purple/5 pointer-events-none;
+  }
+  
+  .light-theme .cyber-card {
+    @apply border-cyber-blue/20 shadow-sm;
+  }
+  
+  .light-theme .cyber-card::before {
+    @apply from-cyber-blue/5 to-cyber-purple/5;
+  }
+  
+  .cyber-glow {
+    box-shadow: 0 0 10px rgba(51, 195, 240, 0.5), 0 0 20px rgba(51, 195, 240, 0.2);
+  }
+  
+  .light-theme .cyber-glow {
+    box-shadow: 0 0 10px rgba(0, 150, 219, 0.3), 0 0 20px rgba(0, 150, 219, 0.1);
+  }
+  
+  .cyber-border {
+    @apply border border-cyber-blue/40 rounded;
+  }
+  
+  .light-theme .cyber-border {
+    @apply border-cyber-blue/30;
+  }
+  
+  .cyber-button {
+    @apply bg-transparent border border-cyber-blue text-cyber-blue 
+           hover:bg-cyber-blue/20 transition-all duration-200 
+           font-mono uppercase tracking-wider py-2 px-4 rounded 
+           flex items-center justify-center gap-2;
+  }
+  
+  .light-theme .cyber-button {
+    @apply text-cyber-blue border-cyber-blue/70 hover:bg-cyber-blue/10;
+  }
+
+  .cyber-input {
+    @apply bg-cyber-darker border border-cyber-blue/30 rounded 
+           text-white p-2 focus:outline-none focus:ring-1 
+           focus:ring-cyber-blue focus:border-cyber-blue;
+  }
+  
+  .light-theme .cyber-input {
+    @apply text-slate-900 border-cyber-blue/20;
+  }
+  
+  .glass-panel {
+    @apply backdrop-blur-lg bg-white/5 border border-white/10 rounded-lg;
+  }
+  
+  .light-theme .glass-panel {
+    @apply bg-black/5 border-black/10;
+  }
+  
+  .neo-brutalism {
+    @apply border-2 border-white shadow-[4px_4px_0px_0px_rgba(255,255,255,0.5)];
+  }
+  
+  .light-theme .neo-brutalism {
+    @apply border-slate-800 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)];
+  }
+
+  /* Adding scanner visualization container */
+  .scanner-visualization {
+    @apply h-[300px] mb-8 rounded-lg overflow-hidden relative;
+    background: linear-gradient(180deg, rgba(15, 160, 206, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
+  }
+
+  .light-theme .scanner-visualization {
+    background: linear-gradient(180deg, rgba(0, 120, 215, 0.05) 0%, rgba(107, 70, 193, 0.03) 100%);
+  }
+}

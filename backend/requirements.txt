@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+requests
+beautifulsoup4
+pandas
+scikit-learn
+joblib
+networkx
+firebase-admin
